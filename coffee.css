@@ -1,0 +1,400 @@
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%; 
+}
+
+.container{
+    justify-content: center;    
+    align-items: center;
+    width: 100%;
+    background-image: url('cof3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+}
+
+.form{
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid white;
+    box-shadow: 0 0 70px 0 brown;
+    backdrop-filter: blur(100%);
+    text-align: center;
+    width: 400px;
+    color: white;
+    margin: auto auto;
+    border-radius: 40px;
+}    
+
+.form h1{
+    font-size: 3em;
+}
+
+.input input{
+    width: 80%;
+    padding: 10px;
+    background: transparent;
+    margin-bottom: 7px;
+    border-bottom: 1px solid white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    color: white;
+}
+
+::-webkit-input-placeholder{
+    color: white;
+    font-size: 1em;
+}
+
+.radio{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    margin-bottom: 7px;
+}
+
+.radio a{
+    color: white;
+    text-decoration: none;
+}
+
+.radio a:hover{
+    color: brown;
+}
+
+#button{
+    background: white;
+    color: black;
+    width: 80%;
+    border-radius: 30px;
+    font-size: 1em;
+    border: none;
+    padding: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+#button:hover{
+    background: brown;
+    color: white;
+}
+
+.link{
+    display: flex;
+}
+
+.home{
+    background-image: url('cof1.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px 10%;
+    align-items: center;
+    color: white;
+    justify-content: left;
+}
+
+header h2, .footer h2{
+    font-size: 1.4em;
+    color: white;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+header h2 span, .footer h2 span{
+    color: white;
+    background: brown;
+    border-radius: 0 20px 0 20px;
+    padding: 4px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1000;
+    padding: 4px 10%;
+    background: rgb(66, 30, 5);
+    align-items: center;
+}
+
+header.active{
+    background: black;
+}
+
+header .navbar .nav{
+    display: flex;
+    list-style: none;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    position: relative;
+}
+
+.nav a{
+    color: white;
+    font-size: 1em;
+    padding: 7px 17px;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav a::after{
+    content: '';
+    background: brown;
+    height: 3px;
+    bottom: -3px;
+    position: absolute;
+    width: 0;
+    transition: 0.4s ease-in-out;
+    left: 0;
+}
+
+.nav a:hover::after{
+    width: 100%;
+}
+
+.menu{
+    color: white;
+    font-size: 22px;
+    display: none;
+}
+
+.writeup{
+    align-items: center;
+}
+
+.writeup  h1{
+    font-size: 3.4em;
+}
+
+.writeup p{
+    font-size: 1em;
+}
+
+.writeup button{
+    width: 200px;
+    padding:10px;
+    border-radius: 30px;
+    background: white;
+    color: black;
+    transition: 0.4s ease-in-out;
+    border: none;
+    font-size: 1em;
+}
+
+#eat, #book:hover, form button{
+    background: brown;
+    color: white;
+}
+
+.popular{
+    padding: 50px 10%;
+}
+
+.popular h3{
+    color: brown;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto ;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image{
+    border: none;
+    background: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 20px 4px 40px  rgb(207, 198, 198);
+    text-align: left;
+    transition: 0.4s linear;
+    width: 270px;
+}
+
+.image:hover{
+    transform: translateY(-1.0em);
+}
+
+.name{
+    padding: 7px;
+}
+
+.image img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sidebar{
+    justify-self: right;
+    width: 200px;
+    height: 90vh;
+    background: brown;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.table{
+    height: 70vh;
+    background-image: url('cof3.jpg');
+    top: 0;
+    z-index:-1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.book{
+    padding: 20px;
+    background: rgb(66, 30, 5);
+    width: 400px;
+    color: white;
+    margin: 0 10%;
+    overflow: hidden;
+    transform: translateY(-200px);
+}
+
+#table{
+    margin-bottom: 0px;
+    height: 90vh;
+}
+
+form{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+form input{
+    width: 100%;
+    background: rgb(102, 55, 22);
+    border: none;
+    padding: 4px;
+    color: white;
+}
+
+form button,#about button{
+    background: brown;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    justify-self: right;
+    margin-top: 10px;
+    border: none;
+    font-size: 1em;
+}   
+
+#about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(66, 30, 5);
+    padding: 10px 10%;
+
+}
+
+#about p{
+    padding-left: 2em;
+    border-left: 2px solid rgb(66, 30, 5);
+    font-size: 1em;
+}
+
+#about h1{
+    font-size: 2em;
+    margin-block-start: 0;
+}
+
+#about img{
+    height: 400px;
+    width: 400px;
+}
+
+.footer{
+    padding: 30px 10%;
+    background: rgb(66, 30, 5);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-align: left;
+}
+
+.footer ul{
+    list-style: none;
+    line-height:1.4em;
+}
+.footer a:hover{
+    color: brown;
+}
+
+footer{
+    background: rgb(66, 30, 5);
+    color: white;
+    text-align: center;
+    padding: 4px;
+}
+
+@media (max-width:1200px){
+    .grid{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (max-width:900px){
+    #about{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        gap: 10px;
+    }
+}
+
+@media (max-width:746px){
+    header .navbar .nav{
+        top: -400px;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        right: 0;
+        transition: 0.4s;
+    }
+
+    .nav.active{
+        top: 90%;
+    }
+
+    .menu{
+        display: initial;
+    }
+
+    .nav a{
+        color: white;
+        display: block;
+        background:  rgb(66, 30, 5);
+        padding: 1em;
+        text-align: center;
+        border-bottom: 1px solid white;
+    }
+}
