@@ -44,6 +44,7 @@ body{
     border-left: 0;
     border-right: 0;
     color: white;
+    outline: none;
 }
 
 ::-webkit-input-placeholder{
@@ -85,6 +86,18 @@ body{
 
 .link{
     display: flex;
+    justify-content: center;
+}
+
+.link a{
+    font-size: 32px;
+    padding: 10px;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.link a:hover{
+    border: 1px solid white;
 }
 
 .home{
@@ -96,6 +109,7 @@ body{
     align-items: center;
     color: white;
     justify-content: left;
+    flex-direction: column;
 }
 
 header h2, .footer h2{
@@ -167,6 +181,7 @@ header .navbar .nav{
 
 .writeup{
     align-items: center;
+    margin: auto 0;
 }
 
 .writeup  h1{
@@ -273,22 +288,23 @@ header .navbar .nav{
     height: 90vh;
 }
 
-form{
+.aform{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     gap: 20px;
 }
 
-form input{
+.aform input{
     width: 100%;
     background: rgb(102, 55, 22);
     border: none;
     padding: 4px;
     color: white;
+    outline: none;
 }
 
-form button,#about button{
+.aform button,#about button{
     background: brown;
     color: white;
     width: 200px;
@@ -304,7 +320,7 @@ form button,#about button{
     justify-content: space-between;
     align-items: center;
     color: rgb(66, 30, 5);
-    padding: 10px 10%;
+    padding: 30px 10%;
 
 }
 
@@ -376,13 +392,19 @@ footer{
         top: -400px;
         flex-direction: column;
         position: absolute;
-        left: 0;
         right: 0;
+        left: 0;
         transition: 0.4s;
     }
 
-    .nav.active{
-        top: 90%;
+    .navbar ul{
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        padding-inline-start: 0;
+    }
+
+    header .navbar .nav.active{
+        top: 100%;
     }
 
     .menu{
@@ -396,5 +418,55 @@ footer{
         padding: 1em;
         text-align: center;
         border-bottom: 1px solid white;
+    }
+
+    .nav a:hover::after{
+        width: 0;
+    }
+
+    .nav a:hover{
+        color: brown;
+    }
+}
+
+@media (max-width:600px){
+    .grid{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+    .book{
+        transform: translateY(-300px);
+    }
+
+    .sidebar{
+        height: 100vh;
+    }
+
+    .footer{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+    .aform{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+}
+}
+
+@media (max-width:450px){
+    .writeup  h1{
+        font-size: 2em;
+    }
+
+    .writeup button{
+        margin-bottom: 10px;
+    }
+
+    .book{
+        width: 300px;
     }
 }
