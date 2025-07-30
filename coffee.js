@@ -1,18 +1,30 @@
 const password = document.querySelector('#password');
 const button = document.querySelector('button');
 const text = document.querySelector('#text')
+const email = document.querySelector('#emai')
 let word;
-let minLength = 6;
+let minLength = 4;
 
-button.onclick = () => {
-    word = password.textContent.length;
-    if (word === '')
-        text.textContent = 'Enter a valid Password';
-    else if (word <= minLength )
-        text.textContent = "Password is too short";
-    else{window.alert('Welcome to CoffeeBar')};
+button.onclick = (e) => {
+    e.preventDefault();
+    word = password.value.length;
+
+        if(password.value === '' || word <= minLength  || email === '') {
+            text.classList.add('error')
+            text.textContent = "Fill in required details";
+            setTimeout (() => text.remove(), 3000);}
+
+        else if (password.value === '' && email.value !== " ") {
+            text.classList.add('error')
+            text.textContent = "Fill in your password";
+            }
+
+        else{window.location.href = "coffee welcome.html"
+         };
 }
 
+    
+//menu navbar
 const head = document.querySelector('.head');
 window.onscroll = () => {
     head.classList('active')
@@ -46,4 +58,78 @@ sr.reveal('.aform',{delay: 400, origin: 'bottom'})
 sr.reveal('#about p',{delay: 400, origin: 'top'})
 sr.reveal('#about img',{delay: 400, origin: 'right'})
 sr.reveal('.footer',{delay: 600, origin: 'bottom'})
-sr.reveal('button',{delay: 800, origin: 'right'})
+
+//coffee page functionality
+const book = document.querySelector('.bookTable');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
+const date = document.getElementById('date');
+const people = document.getElementById('people');
+const error = document.getElementById('error');
+
+function submit() {
+    if(firstname.value === "" || 
+        lastname.value === "" || 
+        people.value === "" || 
+        date.value === ""){
+        error.textContent = 'Please fill in all fields';
+        console.error('Fill in all fields');
+        setTimeout(() => error.remove(), 3000);
+    }
+    else {
+    window.alert(`${firstname.value}, Table booked successfully`);
+    console.log('Table booked successfully');
+    setTimeout(() => error.remove(), 3000);
+    window.location.href = "coffee welcome.html";
+    }
+}
+
+book.addEventListener('click', submit)
+
+//cart functionality
+const image = document.querySelectorAll('.image');
+const back = document.querySelector('.back');
+const payment = document.querySelector('.payment');
+const cartItems = document.getElementById('cart-table-body');
+
+if(image.length > 0){
+  image.forEach((item) => {
+      item.addEventListener('click', () => {
+          const name = item.getAttribute('data-name');
+          const itemImage = item.getAttribute('data-image');
+          const price = item.getAttribute('data-price');
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Add selected item
+      cart.push({ name, itemImage, price });
+
+      // Save back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+
+    })
+});
+}
+
+// Display cart items
+if(cartItems) {
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+console.log('cart items:', cart);
+
+  cart.forEach((item) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td><img src="${item.itemImage}" width="80px"></td>
+      <td>${item.name}</td>
+      <td>$${item.price}</td>
+    `;
+
+    cartItems.appendChild(row);
+  });
+}
+
+back.onclick = () => {
+    window.location.href = "coffee  welcome.html";
+}
