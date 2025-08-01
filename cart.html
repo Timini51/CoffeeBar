@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee bar cart</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet"  href="coffee.css">
 </head>
 <body>
@@ -40,8 +41,9 @@
 </table>
 
     </div>
+
     <div class="cartLink">
-        <a class="back">Back</a>
+        <a class="back" href="coffee welcome.html">Back</a>
         <a class="payment">Proceed to Payment</a>
     </div>
 
@@ -52,6 +54,22 @@
     </div>
 
     <script src="coffee.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = document.getElementById('cart-table-body');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+             cart.forEach((item) => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td><img src="${item.itemImage}"></td>
+      <td>${item.name}</td>
+      <td>${item.price}</td>
+    `;
+    cartItems.appendChild(row);
+  });
+        });
+    </script>
    
 </body>
 </html>

@@ -56,7 +56,7 @@ sr.reveal('.writeup p',{delay: 400, origin: 'left'})
 sr.reveal('.grid',{delay: 200, origin: 'bottom'})
 sr.reveal('.aform',{delay: 400, origin: 'bottom'})
 sr.reveal('#about p',{delay: 400, origin: 'top'})
-sr.reveal('#about img',{delay: 400, origin: 'right'})
+sr.reveal('#about img',{delay: 400, origin: 'top'})
 sr.reveal('.footer',{delay: 600, origin: 'bottom'})
 
 //coffee page functionality
@@ -100,36 +100,60 @@ if(image.length > 0){
           const price = item.getAttribute('data-price');
 
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
       // Add selected item
       cart.push({ name, itemImage, price });
-
       // Save back to localStorage
       localStorage.setItem('cart', JSON.stringify(cart));
         alert(`${name} added to cart!`);
-
     })
 });
 }
-
+else if(image.length == 0){
+    cartItems.innerHTML = "Your cart is  empty"
+}
 // Display cart items
 if(cartItems) {
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 console.log('cart items:', cart);
-
   cart.forEach((item) => {
     const row = document.createElement('tr');
 
     row.innerHTML = `
-      <td><img src="${item.itemImage}" width="80px"></td>
+      <td><img src="${item.itemImage}" ></td>
       <td>${item.name}</td>
       <td>$${item.price}</td>
+    <td><button class="delete-btn" data-index="${index}">X</button></td>
     `;
-
     cartItems.appendChild(row);
   });
 }
 
+/*
+if (cartItems) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function renderCart() {
+    cartItems.innerHTML = ''; // Clear previous content
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<tr><td colspan='4'>Your cart is empty</td></tr>";
+      return;
+    }
+// Add event listener to each delete button
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const index = this.getAttribute('data-index');
+        cart.splice(index, 1); // Remove item
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update storage
+        renderCart(); // Re-render cart
+      });
+    }); }
+
+  renderCart();
+}
+  */
+
 back.onclick = () => {
-    window.location.href = "coffee  welcome.html";
+    window.location.href = "coffee welcome.html";
 }
