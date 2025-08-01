@@ -35,6 +35,7 @@
       <th>Image</th>
       <th>Item</th>
       <th>Price</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody id="cart-table-body"></tbody>
@@ -57,18 +58,38 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cartItems = document.getElementById('cart-table-body');
+
+             function renderCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-             cart.forEach((item) => {
+            cartItems.innerHTML = ''; // Clear previous content before re-render
+
+             cart.forEach((item, index) => {
     const row = document.createElement('tr');
 
     row.innerHTML = `
       <td><img src="${item.itemImage}"></td>
       <td>${item.name}</td>
       <td>${item.price}</td>
+      <td><button class="delete-btn" data-index="${index}">X</button></td>
     `;
     cartItems.appendChild(row);
-  });
+    });
+
+    // Add event listener to all delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const index = parseInt(this.getAttribute('data-index'));
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1); // Remove item from array
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart
+        renderCart(); // Re-render cart
+      })
         });
+    }
+    renderCart();
+});
+
     </script>
    
 </body>

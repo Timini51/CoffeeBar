@@ -390,6 +390,8 @@ footer{
 .cartList{
     padding: 40px 10%;
     max-width: 100vw;
+    overflow-y: auto;
+    height: 80vh;
 }
 
 .cartList table::-webkit-scrollbar-thumb{
@@ -409,8 +411,7 @@ footer{
 
 .cartList table{
     max-width: 100vw;
-    overflow: scroll;
-    height: 70vh;
+    width: 100%;
 }
 
 table thead{
@@ -419,17 +420,23 @@ table thead{
     font-size: larger;
 }
 
-table tbody{
-    border: 1px solid brown;
-    color: black;
-    overflow: scroll;
-}
-
 .cartcontainer{
     height: 100vh;
     width: 100%;
     position: relative;
-    overflow: hidden;
+}
+
+table td{
+    text-align: center;
+}
+
+.delete-btn{
+    padding: 10px;
+    color: brown;
+    border: none;
+    background: transparent;
+    font-weight: bolder;
+    font-size: 1em;
 }
 
 .cartcontainer footer{

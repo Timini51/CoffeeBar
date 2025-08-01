@@ -128,7 +128,7 @@ console.log('cart items:', cart);
   });
 }
 
-/*
+/* clear cart
 if (cartItems) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
